@@ -1,0 +1,16 @@
+<launch>
+
+	<node pkg="course_agv_slam" type="icp.py" name="icp" output="screen">
+		
+		<!--from a rosbag-->
+		<param name="robot_x" value="0"/>
+		<param name="robot_y" value="0"/>
+		<param name="robot_theta" value="0"/>
+
+		<param name="max_iter" value="10"/>
+		<param name="tolerance" value="0"/>
+		<param name="dis_th" value="3"/>
+	</node>
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find course_agv_slam)/launch/course_agv.rviz" />
+</launch>
