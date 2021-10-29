@@ -1,0 +1,20 @@
+<launch>
+
+	<node pkg="course_agv_slam" type="slam_ekf.py" name="slam" output="screen">
+		
+		<!--from a rosbag-->
+		<param name="robot_x" value="0"/>
+		<param name="robot_y" value="0"/>
+		<param name="robot_theta" value="0"/>
+
+		<param name="max_iter" value="10"/>
+		<param name="tolerance" value="0"/>
+		<param name="dis_th" value="3"/>
+
+		<param name="map_width" value="20"/>
+		<param name="map_height" value="20"/>
+		<param name="map_resolution" value="0.1"/>
+	</node>
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find course_agv_slam)/launch/course_agv.rviz" />
+</launch>
